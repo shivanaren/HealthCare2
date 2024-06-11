@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HealthCare
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
@@ -25,3 +26,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# HealthCare2
+
+It's an Angular Project of HealthCare company (Fitness Centre)
+Developed by Sharanya Gundeti, Shivudu Kommu, Siva Santosh Kumar Balla
+>>>>>>> b3a4595676edc50269562b12217dcbe91a957f9d
