@@ -1,0 +1,166 @@
+
+<nav>
+  <a routerLink="/signup/coaches">Coaches</a>
+  <a routerLink="/signup/users">Users</a>
+</nav>
+ 
+<div *ngIf="type === 'coaches'">
+  <h3>Coaches Signup</h3>
+  Coaches signup form or content goes here
+</div>
+ 
+<div *ngIf="type === 'users'">
+  <h3>Users Signup</h3>
+  Users signup form or content goes here
+</div>
+ 
+<div *ngIf="!type">
+  <p>Please select an option above.</p>
+</div>
+
+<body>
+    <div class="profile-container">
+        <h3> <img src="assets\coach.jpg"> Life Coach Profile</h3>
+        <form [formGroup]=" regForm" class="profile-form">
+            <div class="form-group">
+                <div class="form-name">
+                    <label for="name">Name</label><br>
+                    <input type="text" id="name" name="name" formControlName="uname">
+                    <div class="name-error"
+                        *ngIf=" regForm.get('uname')?.touched && regForm.get('uname')?.hasError('required') ">name
+                        required</div>
+                    <div class="name-error"
+                        *ngIf=" regForm.get('uname')?.touched && regForm.get('uname')?.hasError('minlength')" style="font-size: 10px;">name
+                        should have 3 to 50 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-password">
+                    <label for="password">Password </label><br>
+                    <input type="password" id="password" name="password" formControlName="password">
+                    <div class="pass-error"
+                        *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('required')">
+                        password required</div>
+                    <div class="pass-error"
+                        *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('minlength')">
+                        password should have 5 to 10 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-date">
+                    <label for="dob">Date of Birth</label> <br>
+                    <input type="date" id="dob" name="dob">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="gender-selection">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-mobile">
+                    <label for="mobile">Mobile Number</label><br>
+                    <input type="text" id="mobile" name="mobile" formControlName="mobileNumber"
+                        pattern="[6-9]{1}[0-9]{9}">
+                    <div class="spec-error" *ngIf=" regForm.get('mobileNumber')?.hasError('required')">mobile number
+                        required</div>
+                    <div class="spec-error"
+                        *ngIf=" regForm.get('mobileNumber')?.touched && regForm.get('mobileNumber')?.hasError('pattern')">
+                        mobile number should have 10 digits</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-speciality">
+                    <label for="speciality">Speciality</label><br>
+                    <input type="text" id="speciality" name="speciality" formControlName="speciality">
+                    <div class="spec-error"
+                        *ngIf=" regForm.get('speciality')?.touched && regForm.get('speciality')?.hasError('required') ">
+                        speciality required</div>
+                    <div class="spec-error"
+                        *ngIf=" regForm.get('speciality')?.touched && regForm.get('speciality')?.hasError('minlength')">
+                        speciality should have 10 to 50 characters</div>
+                </div>
+            </div>
+            <div><br><br><button type="submit">Register </button></div>
+        </form>
+    </div>
+</body>
+
+
+<!--------------------users code-------------------->
+<body>
+    <div class="profile-container">
+        <h3> <img src="assets\user.jpg"> User Profile</h3>
+<form class="profile-form">
+    <div class="form-group">
+        <div class="form-name">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name">
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="form-password">
+        <label for="password">Password </label><br>
+        <input type="text" id="password" name="password">
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="form-date">
+        <label for="dob">Date of Birth</label> <br>
+        <input type="date" id="dob" name="dob">
+    </div>
+</div>
+    <div class="form-group">
+    <div class="gender-selection">
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+ 
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female">
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="form-mobile">
+        <label for="mobile">Mobile Number</label><br>
+        <input type="tel" id="mobile" name="mobile">
+    </div>
+</div>
+    <div class="form-group">
+        <div class="form-email">
+        <label for="email">Email</label><br>
+        <input type="text" id="emial" name="email">
+    </div>
+</div>
+ <div class="form-group">
+    <div class="form-pincode">
+    <label for="pincode">Pincode</label><br>
+    <input type="number" id="pincode" name="pincode">
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-city">
+    <label for="city">City</label><br>
+    <input type="text" id="city" name="city">
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-state">
+    <label for="state">State</label><br>
+    <input type="text" id="state" name="state">
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-country">
+    <label for="country">Country</label><br>
+    <input type="text" id="country" name="country">
+    </div>
+</div>
+<div><br><button type="submit">Register </button></div>
+ </form>
+ </div>
+</body>
+ 
