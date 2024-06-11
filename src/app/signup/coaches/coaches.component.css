@@ -1,16 +1,17 @@
+
 h3{
     text-align: center;
     margin-top: 50px;
     font-size: 40px;
     color: white;
 }
- 
+
 img{
     width: 70px;
     margin-left: 20px;
     margin-top: 0px;
 }
- 
+
 body{
     display: flex;
     align-items: center;
@@ -18,10 +19,10 @@ body{
     background-color: black;
     margin-left: 320px;
     margin-right: 320px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 20px;
     border-radius: 10px;
-   
+    
 }
 .profile-form{
     padding: 20px;
@@ -29,10 +30,10 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
- 
+
 .form-group{
     color: white;
-   
+    
 }
 .form-name{
     margin-left: 70px;
@@ -52,7 +53,7 @@ body{
     margin-top: 40px;
     font-size:20px;
 }
- 
+
 .gender-selection label {
     margin-left: 10px;
 }
@@ -75,29 +76,4 @@ button{
     background-color: darkgreen;
     border-radius: 5px;
     font-size: 20px;
-}
-
-.form-email{
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size:16px;
-}
-
-.form-pincode{
-    margin-left: 70px;
-    margin-top: 10px;
-}
-.form-city{
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size:16px;
-}
-.form-state{
-    margin-left: 70px;
-    margin-top: 10px;
-}
-.form-country{
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size:16px;
 }
