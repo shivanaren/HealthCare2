@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CoachesComponent } from './signup/coaches/coaches.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+
 
 const routes: Routes = [
   {
@@ -9,13 +11,16 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
-    path:'signup/coaches',
-    component:CoachesComponent
+    path:'',
+    redirectTo:'home', pathMatch:'full',
   },
   {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full',
+    path:'signup/coaches',
+    component:SignupComponent
+  },
+  {
+    path:'login/coaches',
+    component:LoginComponent
   }
 ];
 
