@@ -14,14 +14,28 @@ const routes: Routes = [
     path:'',
     redirectTo:'home', pathMatch:'full',
   },
+ 
   {
     path:'signup/coaches',
-    component:SignupComponent
+    component:SignupComponent,
+    data: { type:'coaches' },
+    
   },
+  {
+    path:'signup/users',
+    component:SignupComponent,
+    data: { type:'users' },
+  },
+
   {
     path:'login/coaches',
     component:LoginComponent
+  },
+  {
+    path:'login/users',
+    component:LoginComponent
   }
+
 ];
 
 @NgModule({

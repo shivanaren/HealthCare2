@@ -1,4 +1,4 @@
-<!-- <nav>
+ <!-- <nav>
   <a routerLink="/signup/coaches">Coaches</a>
   <a routerLink="/signup/users">Users</a>
 </nav>
@@ -15,22 +15,22 @@
  
 <div *ngIf="!type">
   <p>Please select an option above.</p>
-</div> -->
+</div>-->
 
 
-<body>
+<body   *ngIf= "signupType === 'coaches'">
     <div class="profile-container">
         <h3> <img src="assets\coach.jpg"> Life Coach Profile</h3>
-        <form [formGroup]=" regForm" class="profile-form">
+        <form  [formGroup]= "userregisterForm"  class="profile-form" >
             <div class="form-group">
                 <div class="form-name">
                     <label for="name">Name</label><br>
-                    <input type="text" id="name" name="name" formControlName="uname">
+                    <input type="text"  name="uname" formControlName="uname">
                     <div class="name-error"
-                        *ngIf=" regForm.get('uname')?.touched && regForm.get('uname')?.hasError('required') ">name
+                        *ngIf=" userregisterForm.get('uname')?.touched && userregisterForm.get('uname')?.hasError('required') ">name
                         required</div>
                     <div class="name-error"
-                        *ngIf=" regForm.get('uname')?.touched && regForm.get('uname')?.hasError('minlength')">name
+                        *ngIf=" userregisterForm.get('uname')?.touched && userregisterForm.get('uname')?.hasError('minlength')">name
                         should have 3 to 50 characters</div>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                     <label for="password">Password </label><br>
                     <input type="password" id="password" name="password" formControlName="password">
                     <div class="name-error"
-                        *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('required')">
+                        *ngIf="userregisterForm.get('password')?.touched && userregisterForm.get('password')?.hasError('required')">
                         password required</div>
                     <div class="name-error"
-                        *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('minlength')">
+                        *ngIf="userregisterForm.get('password')?.touched && userregisterForm.get('password')?.hasError('minlength')">
                         password should have 5 to 10 characters</div>
                 </div>
             </div>
@@ -64,13 +64,13 @@
             <div class="form-group">
                 <div class="form-mobile">
                     <label for="mobile">Mobile Number</label><br>
-                    <input type="text" id="mobile" name="mobile" formControlName="mobileNumber"
+                    <input type="number" id="mobile" name="mobile" formControlName="mobileNumber"
                         pattern="[6-9]{1}[0-9]{9}">
                     <div class="name-error"
-                        *ngIf=" regForm.get('mobileNumber')?.touched && regForm.get('mobileNumber')?.hasError('required')">
+                        *ngIf="userregisterForm.get('mobileNumber')?.touched && userregisterForm.get('mobileNumber')?.hasError('required')">
                         mobile number required</div>
                     <div class="name-error"
-                        *ngIf=" regForm.get('mobileNumber')?.touched && regForm.get('mobileNumber')?.hasError('pattern')">
+                        *ngIf=" userregisterForm.get('mobileNumber')?.touched && userregisterForm.get('mobileNumber')?.hasError('minlength')">
                         mobile number should have 10 digits</div>
                 </div>
             </div>
@@ -79,10 +79,10 @@
                     <label for="speciality">Speciality</label><br>
                     <input type="text" id="speciality" name="speciality" formControlName="speciality">
                     <div class="name-error"
-                        *ngIf=" regForm.get('speciality')?.touched && regForm.get('speciality')?.hasError('required') ">
+                        *ngIf=" userregisterForm.get('speciality')?.touched && userregisterForm.get('speciality')?.hasError('required') ">
                         speciality required</div>
                     <div class="name-error"
-                        *ngIf=" regForm.get('speciality')?.touched && regForm.get('speciality')?.hasError('minlength')">
+                        *ngIf="userregisterForm.get('speciality')?.touched && userregisterForm.get('speciality')?.hasError('pattern')">
                         speciality should have 10 to 50 characters</div>
                 </div>
             </div>
@@ -92,10 +92,10 @@
 </body>
 
 
-<!-----------------join as users code--------------------->
+<!--  ---------------join as users code-------------------  -->
 
-<body>
-    <div class="profile-container">
+<body  class="users"    *ngIf= "signupType === 'users'">
+    <div class="profile-container" >
         <h3> <img src="assets\user.jpg"> User Profile</h3>
         <form class="profile-form">
             <div class="form-group">
