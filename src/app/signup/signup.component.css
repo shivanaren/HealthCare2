@@ -19,6 +19,7 @@ body{
     margin-left: 320px;
     margin-right: 320px;
     margin-top: 30px;
+    
     padding-bottom: 20px;
     border-radius: 10px;
    
@@ -114,4 +115,19 @@ button{
 .name-error{
     font-size: 10px;
     color:rgb(199, 27, 27)
+}
+.users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    margin-left: 320px;
+    margin-right: 320px;
+    height: 520px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    padding-bottom: -20px;
+    border-radius: 10px;
+    width: 550px;
+    
 }
