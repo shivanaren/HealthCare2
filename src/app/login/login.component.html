@@ -1,1 +1,58 @@
-<p>login works!</p>
+<body *ngIf= "loginTitle === 'coaches'">
+    <div class="profile-container">
+    <h6> <img src="assets\coach.jpg">Login as Life Coach </h6>
+    <form [formGroup]="loginForm" class="profile-form">
+            <div class="form-coachid">
+                <label for="coachId"></label><br>
+                <input type="text" id="coachId"  placeholder="CoachId" formControlName="coachid">
+                <div class="name-error"
+                *ngIf=" loginForm.get('coachid')?.touched && loginForm.get('coachid')?.hasError('required') ">coachid
+                required</div>
+            </div>    
+        
+        <div class="form-password">
+                <label for="password"></label><br>
+                <input  type="password" id="password" placeholder="password" formControlName="password">
+                <div class="name-error"
+                        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+                        password required</div>
+                    <div class="name-error"
+                        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('minlength')">
+                        password should have 5 to 10 characters</div>
+        </div>
+
+        <button type="submit" routerLink="/login/coaches">Login</button>
+    
+    </form>
+    </div>
+</body>
+
+<body *ngIf= "loginTitle === 'users'">
+   <div class="profile-container">
+    <h6> <img src="assets\user.jpg">Login as User </h6>
+    <form [formGroup]="userForm"  class="profile-form">
+            <div class="form-userId">
+                <label for="userId"></label><br>
+                <input type="text" id="userId" placeholder="userId" formControlName="userid">
+                <div class="name-error"
+                *ngIf="userForm.get('userid')?.touched && userForm.get('userid')?.hasError('required') ">userid
+                required</div>
+            </div>
+        
+        <div class="form-password">
+                <label for="password"></label><br>
+                <input type="password" id="password" placeholder="password" formControlName="password1">
+                <div class="name-error"
+                *ngIf="userForm.get('password1')?.touched && userForm.get('password1')?.hasError('required')">
+                password required</div>
+            <div class="name-error"
+                *ngIf="userForm.get('password1')?.touched && userForm.get('password1')?.hasError('minlength')">
+                password should have 5 to 10 characters</div>
+        </div>
+
+        <button type="submit" routerLink="/login/users">Login</button>
+    
+    </form>
+</div>
+</body>
+

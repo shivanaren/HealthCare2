@@ -29,11 +29,13 @@ const routes: Routes = [
 
   {
     path:'login/coaches',
-    component:LoginComponent
+    component:LoginComponent,
+    data: { type:'coaches' },
   },
   {
     path:'login/users',
-    component:LoginComponent
+    component:LoginComponent,
+    data: { type:'users' },
   }
 
 ];

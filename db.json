@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "uname1": "siva santosh balla",
+      "password1": "adminefef",
+      "mobileNumber1": "0456789754",
+      "email": "admine@gmail.com",
+      "pincode": "233444",
+      "city": "ewfewfe",
+      "state": "ewfefef",
+      "country": "India",
+      "id": 1
+    },
+    {
+      "uname1": "siva santosh balla",
+      "password1": "adminefef",
+      "mobileNumber1": "0456789754",
+      "email": "admine@gmail.com",
+      "pincode": "233444",
+      "city": "ewfewfe",
+      "state": "ewfefef",
+      "country": "India",
+      "id": 2
+    },
+    {
+      "uname1": "siva santosh balla",
+      "password1": "adminefef",
+      "mobileNumber1": "0456789754",
+      "email": "admine@gmail.com",
+      "pincode": "233444",
+      "city": "ewfewfe",
+      "state": "ewfefef",
+      "country": "India",
+      "id": 3
+    },
+    {
+      "uname1": "siva santosh balla",
+      "password1": "adminefef",
+      "mobileNumber1": "0456789754",
+      "email": "admine@gmail.com",
+      "pincode": "233444",
+      "city": "ewfewfe",
+      "state": "ewfefef",
+      "country": "India",
+      "id": 4
+    },
+    {
+      "uname1": "siva santosh balla",
+      "password1": "adminefef",
+      "mobileNumber1": "0456789754",
+      "email": "admine@gmail.com",
+      "pincode": "233444",
+      "city": "ewfewfe",
+      "state": "ewfefef",
+      "country": "India",
+      "id": 5
+    }
+  ],
+  "coaches": [
+    {
+      "uname": "admine",
+      "password": "adminefef",
+      "mobileNumber": "0996312112",
+      "speciality": "dcfggbrfgrgr",
+      "id": 1
+    },
+    {
+      "uname": "admine",
+      "password": "adminefef",
+      "mobileNumber": "0996312112",
+      "speciality": "dfrvrfrffrfrefverfe",
+      "id": 2
+    }
+  ]
+}

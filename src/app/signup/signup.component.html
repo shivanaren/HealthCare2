@@ -1,31 +1,13 @@
- <!-- <nav>
-  <a routerLink="/signup/coaches">Coaches</a>
-  <a routerLink="/signup/users">Users</a>
-</nav>
- 
-<div *ngIf="type === 'coaches'">
-  <h3>Coaches Signup</h3>
-  
-</div>
- 
-<div *ngIf="type === 'users'">
-  <h3>Users Signup</h3>
-  
-</div>
- 
-<div *ngIf="!type">
-  <p>Please select an option above.</p>
-</div>-->
-
 
 <body   *ngIf= "signupType === 'coaches'">
+ <div   *ngIf="!isCoachRegistrationsuccessful">
     <div class="profile-container">
         <h3> <img src="assets\coach.jpg"> Life Coach Profile</h3>
-        <form  [formGroup]= "userregisterForm"  class="profile-form" >
+        <form  [formGroup]= "userregisterForm"  (ngSubmit)="coachregister()" class="profile-form" >
             <div class="form-group">
                 <div class="form-name">
                     <label for="name">Name</label><br>
-                    <input type="text"  name="uname" formControlName="uname">
+                    <input id="name" formControlName="uname">
                     <div class="name-error"
                         *ngIf=" userregisterForm.get('uname')?.touched && userregisterForm.get('uname')?.hasError('required') ">name
                         required</div>
@@ -37,7 +19,7 @@
             <div class="form-group">
                 <div class="form-password">
                     <label for="password">Password </label><br>
-                    <input type="password" id="password" name="password" formControlName="password">
+                    <input type="password" id="password" formControlName="password">
                     <div class="name-error"
                         *ngIf="userregisterForm.get('password')?.touched && userregisterForm.get('password')?.hasError('required')">
                         password required</div>
@@ -63,14 +45,13 @@
             </div>
             <div class="form-group">
                 <div class="form-mobile">
-                    <label for="mobile">Mobile Number</label><br>
-                    <input type="number" id="mobile" name="mobile" formControlName="mobileNumber"
-                        pattern="[6-9]{1}[0-9]{9}">
+                    <label for="mobileNumber">Mobile Number</label><br>
+                    <input id="mobileNumber" formControlName="mobileNumber" pattern="\d*" >
                     <div class="name-error"
                         *ngIf="userregisterForm.get('mobileNumber')?.touched && userregisterForm.get('mobileNumber')?.hasError('required')">
                         mobile number required</div>
                     <div class="name-error"
-                        *ngIf=" userregisterForm.get('mobileNumber')?.touched && userregisterForm.get('mobileNumber')?.hasError('minlength')">
+                        *ngIf=" userregisterForm.get('mobileNumber')?.touched && userregisterForm.get('mobileNumber')?.hasError('pattern')">
                         mobile number should have 10 digits</div>
                 </div>
             </div>
@@ -86,28 +67,53 @@
                         speciality should have 10 to 50 characters</div>
                 </div>
             </div>
-            <div><br><br><button type="submit">Register </button></div>
+            <div><br><br><button type="submit" [disabled]="!userregisterForm.valid" >Register </button></div>
         </form>
     </div>
+ </div>
 </body>
+
+<div class="coachsuccessful-container" *ngIf="isCoachRegistrationsuccessful">
+    <h3> <img src="assets\coach.jpg"></h3>
+    <p>Account Created Successfully</p>
+    <p>Your Coach Id is: {{coachId}} </p>
+    <div class="coachButton">
+    <button type="submit" routerLink="/login/coaches">Login Now</button>
+</div>
+</div>
 
 
 <!--  ---------------join as users code-------------------  -->
 
-<body  class="users"    *ngIf= "signupType === 'users'">
+<body    *ngIf= "signupType === 'users'">
+    <div *ngIf="!isUserRegistrationsuccessful">
+    <div class="users" >
     <div class="profile-container" >
         <h3> <img src="assets\user.jpg"> User Profile</h3>
-        <form class="profile-form">
+        <form  [formGroup]= "userregisterform1"  (ngSubmit)="userregister()"  class="profile-form">
             <div class="form-group">
                 <div class="form-name">
                     <label for="name">Name</label><br>
-                    <input type="text" id="name" name="name">
-                </div>
+                    <input id="name"  formControlName="uname1">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('uname1')?.touched && userregisterform1.get('uname1')?.hasError('required') ">name
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('uname1')?.touched && userregisterform1.get('uname1')?.hasError('minlength')">name
+                    should have 3 to 50 characters</div>
             </div>
+                </div>
+    
             <div class="form-group">
                 <div class="form-password">
                     <label for="password">Password </label><br>
-                    <input type="text" id="password" name="password">
+                    <input type="password" id="password" formControlName="password1">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('password1')?.touched && userregisterform1.get('password1')?.hasError('required') ">password
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('password1')?.touched && userregisterform1.get('password1')?.hasError('minlength')">password
+                    should have 3 to 50 characters</div>
                 </div>
             </div>
             <div class="form-group">
@@ -128,40 +134,88 @@
             <div class="form-group">
                 <div class="form-mobile">
                     <label for="mobile">Mobile Number</label><br>
-                    <input type="tel" id="mobile" name="mobile">
+                    <input type="tel" id="mobile" formControlName="mobileNumber1">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('mobileNumber1')?.touched && userregisterform1.get('mobileNumber1')?.hasError('required') ">mobileNumber
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('mobileNumber1')?.touched && userregisterform1.get('mobileNumber1')?.hasError('pattern')">mobileNumber
+                    should have 10 digits</div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-email">
                     <label for="email">Email</label><br>
-                    <input type="text" id="emial" name="email">
+                    <input type="text" id="email" formControlName="email">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('email')?.touched && userregisterform1.get('email')?.hasError('required') ">email
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('email')?.touched && userregisterform1.get('email')?.hasError('maxlength')">email Id
+                    should be valid</div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-pincode">
                     <label for="pincode">Pincode</label><br>
-                    <input type="number" id="pincode" name="pincode">
+                    <input id="pincode" formControlName="pincode" pattern="\d*">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('pincode')?.touched && userregisterform1.get('pincode')?.hasError('required') ">pincode
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('pincode')?.touched && userregisterform1.get('pincode')?.hasError('maxlength')">pincode
+                    must have 6 digits</div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-city">
                     <label for="city">City</label><br>
-                    <input type="text" id="city" name="city">
+                    <input id="city" formControlName="city">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('city')?.touched && userregisterform1.get('city')?.hasError('required') ">city
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('city')?.touched && userregisterform1.get('city')?.hasError('minlength')">city
+                    should have 3 to 20 characters</div>
+
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-state">
                     <label for="state">State</label><br>
-                    <input type="text" id="state" name="state">
+                    <input type="text" id="state" formControlName="state">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('state')?.touched && userregisterform1.get('state')?.hasError('required') ">state
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('state')?.touched && userregisterform1.get('state')?.hasError('minlength')">state
+                    should have 3 to 20 characters</div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-country">
                     <label for="country">Country</label><br>
-                    <input type="text" id="country" name="country">
+                    <input type="text" id="country" formControlName="country">
+                    <div class="name-error"
+                    *ngIf=" userregisterform1.get('country')?.touched && userregisterform1.get('country')?.hasError('required') ">country
+                    required</div>
+                <div class="name-error"
+                    *ngIf=" userregisterform1.get('country')?.touched && userregisterform1.get('country')?.hasError('minlength')">country
+                    should have 3 to 20 characters</div>
                 </div>
             </div>
-            <div><br><button type="submit">Register </button></div>
+           <div><br><button type="submit" [disabled]="!userregisterform1.valid" >Register </button></div>
         </form>
     </div>
+    </div>
+    </div>
 </body>
+
+<div class="coachsuccessful-container" *ngIf="isUserRegistrationsuccessful">
+    <h3> <img src="assets\user.jpg"></h3>
+    <p>Account Created Successfully</p>
+    <p>Your User Id is: {{userId}} </p>
+    <div class="coachButton">
+    <button type="submit" routerLink="/login/users">Login Now</button>
+</div>
+</div>
