@@ -12,7 +12,7 @@ interface UserData{
   email: string;
   uname: string;
 
- }
+}
 
 @Component({
   selector: 'app-signup',

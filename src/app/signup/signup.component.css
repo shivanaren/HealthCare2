@@ -26,6 +26,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
  
@@ -118,8 +119,8 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    margin-left: 320px;
+    
+    margin-left: 20px;
     margin-right: 320px;
     height: 520px;
     margin-top: 4px;
@@ -143,11 +144,10 @@ p{
 }
 .coachsuccessful-container{
     background-color: aliceblue;
-    position: relative;
-    top: 0;
-    left: 0;
+    align-items: center;
+    margin-top: 10px;
     width: 100vw; 
-    height: 100vh; 
+    height: 100hw; 
     margin: 0; 
     padding: 1rem;
 }
