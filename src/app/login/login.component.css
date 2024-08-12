@@ -74,3 +74,7 @@ button{
     width: 500px;
     height: 35px;
 }
+.invalid{
+    color: red;
+    margin-left: 50px;
+}

@@ -8,6 +8,11 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { UserhomeComponent } from './user/userhome/userhome.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { AppointmentsComponent } from './user/appointments/appointments.component';
+import { CoachhomeComponent } from './coach/coachhome/coachhome.component';
+import { CoachprofileComponent } from './coach/coachprofile/coachprofile.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     SignupComponent,
     LoginComponent,
+    UserhomeComponent,
+    UserprofileComponent,
+    AppointmentsComponent,
+    CoachhomeComponent,
+    CoachprofileComponent,
     
   ],
   imports: [

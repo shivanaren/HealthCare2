@@ -63,14 +63,12 @@ export class SignupComponent implements OnInit {
   isUserRegistrationsuccessful = false;
 
   coachregister(){
-    debugger
     if (this.userregisterForm.valid){
       this.signupservice.registerCoach(this.userregisterForm.value).subscribe(response =>{
         console.log('coach registered successfully',response);
         alert('coach registered successfully:' + response.id);
         this.isCoachRegistrationsuccessful = true;
         this.coachId = response.id;
-    
        },
        error =>{
          console.error('Error registering coach',error);
